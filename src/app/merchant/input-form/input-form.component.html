@@ -1,0 +1,417 @@
+<div class="input-container">
+  <h5 *ngIf="user$ | async as user">Welcome, {{ user.displayName }}</h5>
+  <form
+    (ngSubmit)="myForm.form.valid && onSubmit()"
+    #myForm="ngForm"
+    novalidate
+  >
+    <mat-form-field appearance="outline" class="form-field">
+      <mat-label>Name</mat-label>
+      <input
+        matInput
+        type="text"
+        id="name"
+        name="fname"
+        placeholder="Your name.."
+        required
+        ngModel
+        [(ngModel)]="this.businessService.fname"
+        #name="ngModel"
+      />
+
+      <mat-error
+        *ngIf="(name.touched || myForm.submitted && name.invalid) && name.errors?.['required']"
+        >Name is a required field</mat-error
+      >
+    </mat-form-field>
+    <div class="wrapper">
+      <div class="email">
+        <mat-form-field appearance="outline" class="form-field">
+          <mat-label>Email</mat-label>
+          <input
+            matInput
+            type="email"
+            name="email"
+            placeholder="pat@example.com"
+            required
+            email
+            #email="ngModel"
+            [(ngModel)]="this.businessService.email"
+            minlength="1"
+            maxlength="250"
+            appEmailValidator
+            class="form-control form-control-sm"
+            [class.is-invalid]="email.invalid && (email.dirty || email.touched)"
+          />
+          <!-- <mat-error *ngIf="email.invalid">{{ getErrorMessage() }}</mat-error> -->
+          <mat-error *ngIf="email.invalid && (email.dirty || email.touched)">
+            <mat-error *ngIf="email.errors?.['required']"
+              >This field is required.</mat-error
+            >
+            <mat-error *ngIf="email.errors?.['minlength']">
+              This field must have at least 1 character.
+            </mat-error>
+            <small *ngIf="email.errors?.['maxlength']">
+              This field must have at most 250 characters.
+            </small>
+            <mat-error
+              *ngIf="!email.errors?.['required'] && !email.errors?.['minlength'] && !email.errors?.['maxlength'] && email.errors?.['emailValidator']"
+            >
+              Invalid email format.
+            </mat-error>
+          </mat-error>
+        </mat-form-field>
+      </div>
+      <!-- value="{{ this.businessService.email }}" -->
+
+      <div class="phone">
+        <!-- <label for="phone">Phone</label> -->
+        <mat-form-field appearance="outline" class="form-field">
+          <mat-label>Phone</mat-label>
+          <input
+            matInput
+            type="text"
+            id="phone"
+            name="phone"
+            placeholder="+91...."
+            required
+            minlength="10"
+            maxlength="10"
+            [(ngModel)]="this.businessService.phone"
+            #contact="ngModel"
+          />
+          <mat-error>
+            <div *ngIf="contact.errors && contact.touched">
+              <mat-error *ngIf="contact.errors['required']"
+                >Contact is required</mat-error
+              >
+              <mat-error *ngIf="contact.errors['minlength']">
+                Phone number must be at least 10 numbers
+              </mat-error>
+              <mat-error *ngIf="contact.errors['maxlength']">
+                Phone number must be atleat 10 numbers and not more than 10
+                numbers
+              </mat-error>
+            </div>
+          </mat-error>
+        </mat-form-field>
+      </div>
+      <div class="website">
+        <mat-form-field appearance="outline" class="form-field">
+          <mat-label>Website</mat-label>
+          <input
+            matInput
+            type="text"
+            id="website"
+            name="website"
+            placeholder="Website......."
+            required
+            #web="ngModel"
+            [(ngModel)]="this.businessService.website"
+          />
+          <mat-error>
+            <div *ngIf="web.errors && web.touched">
+              <mat-error *ngIf="web.errors['required']"
+                >Website name is required</mat-error
+              >
+            </div>
+          </mat-error>
+        </mat-form-field>
+      </div>
+    </div>
+
+    <div class="wrapper">
+      <div class="contact-Name">
+        <!-- <label for="contactName">Contact Name</label> -->
+        <mat-form-field appearance="outline" class="form-field">
+          <mat-label>Contact Name</mat-label>
+          <input
+            matInput
+            type="text"
+            id="contactName"
+            name="contactName"
+            placeholder="contact name......."
+            [(ngModel)]="this.businessService.contactName"
+            #contactName="ngModel"
+            required
+          />
+          <mat-error>
+            <div *ngIf="contactName.errors && contactName.touched">
+              <mat-error *ngIf="contactName.errors['required']"
+                >Contact name is required</mat-error
+              >
+            </div>
+          </mat-error>
+        </mat-form-field>
+      </div>
+
+      <div class="contact-phone">
+        <mat-form-field appearance="outline" class="form-field">
+          <mat-label>Contact Phone</mat-label>
+          <input
+            matInput
+            type="text"
+            id="contactPhone"
+            name="contactPhone"
+            placeholder="contact phone......."
+            required
+            [(ngModel)]="this.businessService.contactPhone"
+          />
+        </mat-form-field>
+      </div>
+      <div class="contact-email">
+        <mat-form-field appearance="outline" class="form-field">
+          <mat-label>Contact Email</mat-label>
+          <input
+            matInput
+            type="email"
+            id="contactEmail"
+            name="contactEmail"
+            placeholder="contactEmail......."
+            [(ngModel)]="this.businessService.contactEmail"
+            required
+            email
+          />
+        </mat-form-field>
+      </div>
+    </div>
+
+    <mat-form-field appearance="outline" class="form-field">
+      <mat-label>Notes</mat-label>
+      <textarea
+        matInput
+        name="notes"
+        id="notes"
+        cols="70"
+        rows="2"
+        required
+        [(ngModel)]="this.businessService.notes"
+      ></textarea>
+    </mat-form-field>
+
+    <!-- <div>
+        <small *ngIf="personalDetail.invalid && personalDetail.touched"
+          >Some of the required fields does not have valid value.</small
+        >
+      </div> -->
+    <!-- <button (click)="setDefaultValues()">Set Default Values</button> -->
+    <!-- </div> -->
+
+    <!-- <label for="type">Type:</label>
+      <br /> -->
+    <label id="example-radio-group-label">Type</label>
+
+    <mat-radio-group
+      class="radio-button"
+      [(ngModel)]="this.businessService.type || defaultType"
+      [ngModelOptions]="{ standalone: true }"
+    >
+      <mat-radio-button
+        color="primary"
+        *ngFor="let typee of businessType"
+        id="{{ typee.id }}"
+        value="{{ typee.value }}"
+        name="type"
+        [(ngModel)]="this.businessService.type || defaultType"
+      >
+        {{ typee.value }}
+      </mat-radio-button>
+    </mat-radio-group>
+    <br />
+
+    <div class="wrapper">
+      <div class="category">
+        <mat-form-field appearance="outline">
+          <!-- <select
+              matNativeControl
+              aria-label="choose"
+              name="category"
+              [(value)]="defaultCategory"
+              [(ngModel)]="this.businessService.category"
+            >
+              <option value="clothes">Clothes</option>
+              <option value="toys">Toys</option>
+              <option value="groceries">Groceries</option>
+              <option value="electronics">Electronics</option>
+              <option value="digital">Digital</option>
+            </select> -->
+
+          <!-- formControlName="category" -->
+          <mat-select
+            class="select"
+            placeholder="Choose category"
+            name="category"
+            [(ngModel)]="this.businessService.category"
+          >
+            <div class="search-box">
+              <input
+                matInput
+                placeholder="Search"
+                (input)="lookup($any($event.target).value)"
+                #inputFilter
+                class="box"
+              />
+              <div class="search-icon box">
+                <mat-icon aria-hidden="false" fontIcon="search"
+                  >search</mat-icon
+                >
+              </div>
+            </div>
+
+            <mat-option
+              *ngFor="let data of filteredDataToSearch"
+              [value]="data.text"
+            >
+              {{ data.text }}
+
+              <!-- <div *ngIf=""></div> -->
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+      <br /><br />
+
+      <div class="comission">
+        <mat-form-field appearance="outline">
+          <mat-label>Comission Percentage</mat-label>
+          <input
+            matInput
+            type="number"
+            id="comissionPercentage"
+            name="comissionPercentage"
+            placeholder="Comission  Percentage"
+            [(ngModel)]="this.businessService.comissionPercentage"
+          />
+        </mat-form-field>
+      </div>
+      <br /><br />
+      <div class="active">
+        <mat-form-field appearance="outline">
+          <mat-label>Active Form</mat-label>
+          <input
+            matInput
+            type="date"
+            name="activeForm"
+            id="activeForm"
+            [(ngModel)]="this.businessService.activeForm"
+            required
+          />
+        </mat-form-field>
+      </div>
+    </div>
+    <br />
+    <div class="wrapper">
+      <div class="wrapper-bottom">
+        <!-- {{ image }} -->
+
+        <div class="logo">
+          <div class="logo-content">
+            <label for="logo">Logo</label>
+            <img
+              [src]="this.businessService.logo || imgSrc | sanitizer"
+              alt=""
+              height="20"
+              #img
+            />
+            <img [src]="imgSrc | sanitizer" alt="" height="20" #img />
+          </div>
+
+          <input
+            style="margin-top: 0.5rem"
+            accept="image/*"
+            type="file"
+            name="logo"
+            id="logo"
+            (change)="onFileChange($event)"
+            [(ngModel)]="this.businessService.logo"
+          />
+          <!-- (change)="onFileChange($event)" -->
+          <!-- [(ngModel)]="this.businessService.logo" -->
+
+          <!-- <p>{{  }}</p> -->
+          <br />
+        </div>
+        <div class="critical">
+          <mat-checkbox
+            color="primary"
+            value="critical Account"
+            name="criticalAccount"
+            ngModel
+            [(ngModel)]="this.businessService.criticalAccount"
+          >
+            Critical Account
+          </mat-checkbox>
+
+          <!-- <label
+              ><input
+                type="checkbox"
+                value="critical Account"
+                name="criticalAccount"
+                ngModel
+                [(ngModel)]="this.businessService.criticalAccount"
+              />
+              Critical Account</label
+            > -->
+        </div>
+      </div>
+      <label for="payment">Payment</label>
+      <div class="form-inline">
+        <mat-checkbox
+          color="primary"
+          value="Card Payment"
+          name="cardPayment"
+          [(ngModel)]="this.businessService.cardPayment"
+        >
+          Card Payment
+        </mat-checkbox>
+
+        <mat-checkbox
+          color="primary"
+          value="Cash On Delivery"
+          name="cashOnDelivery"
+          [(ngModel)]="this.businessService.cashOnDelivery"
+        >
+          Cash On Delivery</mat-checkbox
+        >
+
+        <mat-checkbox
+          color="primary"
+          value="UPI"
+          name="upi"
+          [(ngModel)]="this.businessService.upi"
+        >
+          UPI</mat-checkbox
+        >
+      </div>
+    </div>
+
+    <div *ngIf="isEdit()">
+      <input
+        type="button"
+        value="Update"
+        class="update"
+        id="btn"
+        (click)="updateMerchant(this.businessService.id)"
+      /><!--[disabled]="!myForm.valid"-->
+      <button type="reset" class="cancel" id="btn" (click)="toggleReset()">
+        Cancel
+      </button>
+    </div>
+    <div *ngIf="!isEdit()" style="margin-top: 1rem">
+      <input type="submit" value="Submit" id="btn" />
+    </div>
+  </form>
+</div>
+
+<div *ngIf="businessService.isSubmitted">
+  <app-progress-spinner [overlay]="true"></app-progress-spinner>
+</div>
+<!-- 
+  <div>
+    <mat-form-field appearance="outline">
+      <input matInput type="text" [(ngModel)]="businessService.input" />
+    </mat-form-field>
+    <button (click)="businessService.callCloudFunction()">
+      Call Cloud function
+    </button>
+  </div> -->

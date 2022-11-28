@@ -1,0 +1,229 @@
+.logo-content {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 1rem;
+}
+input[type="submit"] {
+  width: 100%;
+  background-color: #9191ff;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.mat-form-field-appearance-outline .mat-form-field-outline-thick {
+  color: rgb(208, 207, 207);
+}
+
+.mat-form-field-appearance-outline.mat-focused .mat-form-field-outline-thick {
+  color: rgb(208, 207, 207);
+}
+
+.mat-select-panel:not([class*="mat-elevation-z"]) {
+  box-shadow: none;
+  border: 1px solid rgb(208, 207, 207);
+}
+
+.submit:hover {
+  box-shadow: 0px 10px 61px -8px #9191ff, 0px 10px 15px -3px rgba(0, 0, 0, 0.1);
+}
+
+.update,
+.cancel {
+  width: 100%;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.form-field {
+  width: 100%;
+}
+.update {
+  background-color: #9191ff;
+}
+
+.cancel {
+  background-color: tomato;
+}
+
+input[type="submit"]:hover {
+  box-shadow: 0px 10px 61px -8px #9191ff, 0px 10px 15px -3px rgba(0, 0, 0, 0.1);
+}
+
+form {
+  border-radius: 10px;
+  padding: 2rem;
+  /* background: #9191ff; */
+  box-shadow: 0px 10px 61px -15px #9191ff, 0px 10px 15px -3px rgba(0, 0, 0, 0.1),
+    0px 10px 15px -3px rgba(0, 0, 0, 0.1);
+  /* width: 30%; */
+  width: 100%;
+}
+/* 
+  input.ng-invalid.ng-touched {
+    border: red 1px solid;
+  } */
+/* small {
+    color: red;
+  } */
+.radio-button,
+.checkbox-button {
+  padding-top: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* .mat-form-field-appearance-outline.mat-form-field-invalid.mat-form-field-invalid
+    .mat-form-field-outline-thick {
+    color: green;
+  } */
+.input-container {
+  /* display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 2rem; */
+  min-height: 100vh;
+}
+.table-list {
+  width: 60%;
+}
+
+.wrapper {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.wrapper-bottom {
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: row;
+  align-items: flex-start;
+  flex-wrap: wrap;
+}
+.email,
+.contact-phone,
+.contact-email,
+.phone,
+.website,
+.contact-Name,
+.category,
+.comission,
+.active,
+.critical {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-self: center;
+  width: auto;
+}
+
+.form-inline {
+  display: flex;
+  flex-direction: column;
+}
+
+/* .mat-select-trigger {
+  
+  } */
+
+.mat-select-panel {
+  min-width: calc(100% + 1px) !important;
+  /* overflow-y: auto !important; */
+  max-height: none !important;
+}
+
+/* .mat-select-content {
+    height: 300px !important;
+  } */
+
+#cdk-overlay-0.cdk-overlay-pane.customClass {
+  top: 456px !important;
+  left: 508.6px !important;
+  transform: none !important;
+}
+
+/* .mat-ripple-element {
+    transition-duration: 0ms !important;
+  } */
+
+.mat-form-field-appearance-outline .mat-form-field-infix {
+  padding: 0.5em 0em 1em 0em !important;
+}
+
+.search-box {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  margin-top: 0.6rem;
+  margin-bottom: 0.6rem;
+}
+/* .box:last-child {
+    margin-left: auto;
+  } */
+
+.fixed {
+  position: sticky;
+  top: 0;
+  z-index: 999;
+}
+
+.search-box input {
+  border: 1px solid lightgray;
+  border-radius: 5px;
+  width: 60%;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  margin-top: 0.3rem;
+  margin-bottom: 0.3rem;
+  text-indent: 8px;
+}
+
+.search-icon {
+  background-color: rgba(47, 255, 82, 0.642);
+  width: 17%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0.3rem;
+  border-radius: 5px;
+  color: white;
+}
+
+.center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -moz-transform: translateX(-50%) translateY(-50%);
+  -webkit-transform: translateX(-50%) translateY(-50%);
+  transform: translateX(-50%) translateY(-50%);
+}
+
+.overlay {
+  height: 100vh;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.286);
+  z-index: 10;
+  top: 0;
+  left: 0;
+  position: fixed;
+}
+
+@media (300px <= width <=539px) {
+  .wrapper {
+    display: block;
+  }
+}

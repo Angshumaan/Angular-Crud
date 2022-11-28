@@ -1,0 +1,95 @@
+<mat-toolbar>
+  <mat-toolbar-row>
+    <button mat-icon-button>
+      <mat-icon (click)="sidenav.toggle()">menu</mat-icon>
+    </button>
+    <span>Merchant</span>
+    <span class="example-spacer"></span>
+    <ng-container
+      *ngIf="
+        authenticationService.currentUser$ | async as user;
+        else signinButton
+      "
+    >
+      <button mat-button [matMenuTriggerFor]="userMenu">
+        <mat-icon>account_circle</mat-icon>
+        {{ user.displayName }}
+        <mat-icon>expand_more</mat-icon>
+      </button>
+    </ng-container>
+    <ng-template #signinButton>
+      <button mat-button routerLink="signin">
+        <mat-icon>login</mat-icon>
+        Login
+      </button>
+    </ng-template>
+  </mat-toolbar-row>
+</mat-toolbar>
+<mat-drawer-container>
+  <mat-drawer #sidenav opened="true" mode="side">
+    <mat-nav-list>
+      <a
+        matRipple
+        [matRippleColor]="'rgb(145, 145, 255,0.3)'"
+        mat-list-item
+        routerLink="/add-merchant"
+        routerLinkActive="active-button"
+        ariaCurrentWhenActive="page"
+      >
+        <mat-icon>home</mat-icon>
+        Home</a
+      >
+      <a
+        matRipple
+        [matRippleColor]="'rgb(145, 145, 255,0.3)'"
+        mat-list-item
+        [routerLink]="['/merchant-list']"
+        routerLinkActive="active-button"
+        ariaCurrentWhenActive="page"
+      >
+        <mat-icon>business</mat-icon>
+        Merchant</a
+      >
+    </mat-nav-list>
+  </mat-drawer>
+  <mat-drawer-content>
+    <app-breadcrumb></app-breadcrumb>
+    <div class="main">
+      <div class="hori-line">
+        <span class="registration">New Business</span>
+      </div>
+      <div class="form-container">
+        <app-ng-dynamic-breadcrumb></app-ng-dynamic-breadcrumb>
+        <router-outlet></router-outlet>
+      </div>
+    </div>
+    <!-- <app-sign-in></app-sign-in>
+    <app-sign-up></app-sign-up> -->
+  </mat-drawer-content>
+</mat-drawer-container>
+<mat-menu #userMenu="matMenu" class="profileMenu">
+  <button mat-menu-item (click)="onLogout()">Logout</button>
+</mat-menu>
+<!-- <div class="container">
+  <div class="hori-line">
+    <span class="registration">New Business</span>
+  </div>
+  <div class="form-container">
+    <nav class="nav-link">
+      <a
+        routerLink="/add-merchant"
+        routerLinkActive="active"
+        ariaCurrentWhenActive="page"
+        >Home</a
+      >
+      <a
+        routerLink="/merchant-list"
+        routerLinkActive="active"
+        ariaCurrentWhenActive="page"
+        >Merchant</a
+      >
+    </nav> -->
+
+<!-- <app-input-form class="input-form"></app-input-form> -->
+<!-- </div>
+</div> -->

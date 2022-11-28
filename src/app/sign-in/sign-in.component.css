@@ -1,0 +1,23 @@
+form {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  padding: 2rem;
+  background-color: rgb(249 249 249);
+  box-shadow: 0px -8px rgb(145 145 255), 0px 10px 15px -3px rgb(0 0 0 / 10%);
+  border-radius: 10px;
+}
+
+.terms,
+.signin {
+  margin-top: 1rem;
+}
+
+.siginButton {
+  background-color: rgb(145 145 255);
+  color: white;
+}
+/* 
+.signin {
+  background-color: aqua;
+} */

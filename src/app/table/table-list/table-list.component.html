@@ -1,0 +1,81 @@
+<div class="form-data">
+  <div class="card-image">
+    <table id="users">
+      <thead>
+        <tr class="head">
+          <th>Name</th>
+          <th>Email</th>
+          <th>Phone</th>
+          <th>Website</th>
+          <th>Notes</th>
+          <th>Type</th>
+          <th>Category</th>
+          <th>Logo</th>
+          <th>Critical Account</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let singleMerchantInfo of merchantInformationList">
+          <td>{{ singleMerchantInfo.fname | uppercase }}</td>
+          <td>{{ singleMerchantInfo.email }}</td>
+          <td>{{ singleMerchantInfo.phone }}</td>
+          <td>{{ singleMerchantInfo.website }}</td>
+          <td>{{ singleMerchantInfo.notes | thanks }}</td>
+          <td>{{ singleMerchantInfo.type }}</td>
+          <td>{{ singleMerchantInfo.category }}</td>
+          <td>
+            <img [src]="singleMerchantInfo.logo" alt="logo" height="20" />
+          </td>
+          <td *ngIf="singleMerchantInfo.criticalAccount">
+            <p
+              appHighlight
+              [criticalAccount]="singleMerchantInfo.criticalAccount"
+            >
+              {{ singleMerchantInfo.criticalAccount }}
+            </p>
+          </td>
+
+          <td>
+            <a
+              [routerLink]="[
+                '/merchant-list',
+                singleMerchantInfo.fname,
+                'edit'
+              ]"
+            >
+              <button mat-icon-button>
+                <img
+                  src="../../assets/icons/edit.png"
+                  class="img-icon"
+                  alt="edit"
+                  (click)="editData(singleMerchantInfo.id)"
+                />
+              </button>
+            </a>
+            <button mat-icon-button>
+              <img
+                src="../../assets/icons/delete.png"
+                class="img-icon"
+                alt="delete"
+                (click)="
+                  deleteMerchantInfo(singleMerchantInfo, '500ms', '500ms')
+                "
+              />
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="exist" *ngIf="merchantInformationList.length === 0">
+      <h3>No merchant !!!</h3>
+    </div>
+  </div>
+  <button
+    type="submit"
+    class="submit"
+    (click)="router.navigate(['add-merchant'])"
+  >
+    <img class="back" src="../../assets/icons/back.png" alt="" />
+  </button>
+</div>

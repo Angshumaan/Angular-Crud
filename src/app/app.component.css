@@ -1,0 +1,130 @@
+.form-container {
+  padding: 20px;
+  /* width: 100%; */
+  margin: 10px auto;
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+/* .input-form {
+  width: 30%;
+} */
+
+.main {
+  height: 100%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: column;
+  background-color: rgb(241, 243, 251);
+  /* min-height: 100vh; */
+}
+
+/* .ng-star-inserted {
+  min-height: 100vh !important;
+} */
+
+.registration {
+  text-align: center;
+  padding: 15px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 500;
+  font-size: x-large;
+}
+
+.hori-line {
+  border-top: 1px solid rgb(220, 220, 220);
+  line-height: 0;
+  text-align: center;
+  margin-top: 25px;
+  width: 25%;
+}
+
+.hori-line .registration {
+  background-color: #f1f3fb;
+  padding: 0 10px;
+  margin: 0 30px;
+}
+
+.nav-link {
+  border-radius: 5px;
+  border-left: 6px solid #6658d3;
+  text-align: center;
+  background-color: #ececff;
+  color: #8597a3;
+  padding: 10px;
+  margin-bottom: auto;
+  width: 44%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+
+.nav-link a {
+  text-decoration: none;
+}
+
+.nav-link a:hover {
+  box-shadow: 0px 10px 61px -8px rgb(145, 145, 255),
+    0px 10px 15px -3px rgba(0, 0, 0, 0.1);
+}
+
+.mat-drawer-container {
+  min-height: 100%;
+  margin-top: 4rem;
+  background-color: #f1f3fb;
+}
+
+.mat-toolbar {
+  background-color: #9191ff;
+  color: white;
+  position: fixed;
+  top: 0;
+  z-index: 99;
+}
+
+.mat-drawer {
+  padding: 20px;
+  position: fixed;
+  margin-top: 4rem;
+}
+
+.mat-drawer-content {
+  overflow: hidden;
+}
+
+.mat-nav-list {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  gap: 1rem;
+}
+.mat-nav-list a {
+  background-color: #9191ff25;
+  border-radius: 5px;
+}
+
+.active-button {
+  border: 1px solid #9191ff;
+}
+
+/* .mat-drawer-content {
+  position: fixed;
+  margin-top: 4rem;
+} */
+
+.example-spacer {
+  flex: 1 1 auto;
+}
+
+@media (300px <= width <=1097px) {
+  .hori-line {
+    width: fit-content;
+  }
+}
+
+::ng-deep #cdk-overlay-1.cdk-overlay-pane {
+  padding-left: 2rem;
+}
