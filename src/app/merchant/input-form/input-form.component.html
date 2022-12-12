@@ -222,51 +222,18 @@
     <div class="wrapper">
       <div class="category">
         <mat-form-field appearance="outline">
-          <!-- <select
-              matNativeControl
-              aria-label="choose"
-              name="category"
-              [(value)]="defaultCategory"
-              [(ngModel)]="this.businessService.category"
-            >
-              <option value="clothes">Clothes</option>
-              <option value="toys">Toys</option>
-              <option value="groceries">Groceries</option>
-              <option value="electronics">Electronics</option>
-              <option value="digital">Digital</option>
-            </select> -->
-
-          <!-- formControlName="category" -->
-          <mat-select
-            class="select"
-            placeholder="Choose category"
+          <mat-label>Category</mat-label>
+          <select
+            matNativeControl
             name="category"
-            [(ngModel)]="this.businessService.category"
+            [(ngModel)]="this.businessService.category || defaultCategory"
           >
-            <div class="search-box">
-              <input
-                matInput
-                placeholder="Search"
-                (input)="lookup($any($event.target).value)"
-                #inputFilter
-                class="box"
-              />
-              <div class="search-icon box">
-                <mat-icon aria-hidden="false" fontIcon="search"
-                  >search</mat-icon
-                >
-              </div>
-            </div>
-
-            <mat-option
-              *ngFor="let data of filteredDataToSearch"
-              [value]="data.text"
-            >
-              {{ data.text }}
-
-              <!-- <div *ngIf=""></div> -->
-            </mat-option>
-          </mat-select>
+            <option value="clothes">Clothes</option>
+            <option value="toys">Toys</option>
+            <option value="groceries">Groceries</option>
+            <option value="electronics">Electronics</option>
+            <option value="digital">Digital</option>
+          </select>
         </mat-form-field>
       </div>
       <br /><br />

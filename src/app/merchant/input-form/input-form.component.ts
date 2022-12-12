@@ -51,10 +51,17 @@ export class InputFormComponent implements OnInit {
   url: string = '';
   selectedFile: any = null;
   categories: any[] = [];
-  businessType = [];
+  businessType = [
+    { id: '1', value: 'Small Business' },
+    { id: '2', value: 'Enterprise' },
+    { id: '3', value: 'Entrepreneur' },
+  ];
+
+  defaultCategory = 'clothes';
+  defaultType = 'Small Business';
   payment = [];
   filteredDataToSearch: any[] = [];
-  defaultType = 'Small Business';
+
   formItems!: Observable<any>;
   constructor(
     public businessService: BusinessService,
@@ -80,7 +87,7 @@ export class InputFormComponent implements OnInit {
   id: string;
   ngOnInit(): void {
     this.getCategoriesData();
-    this.getTypeData();
+    // this.getTypeData();
     this.getPaymentData();
   }
 
@@ -107,11 +114,11 @@ export class InputFormComponent implements OnInit {
     });
   }
 
-  getTypeData() {
-    this.formItems.subscribe((res) => {
-      this.convertArrayofObjects(res[3], this.businessType);
-    });
-  }
+  // getTypeData() {
+  //   this.formItems.subscribe((res) => {
+  //     this.convertArrayofObjects(res[3], this.businessType);
+  //   });
+  // }
 
   getPaymentData() {
     this.formItems.subscribe((res) => {

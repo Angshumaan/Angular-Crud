@@ -40,7 +40,7 @@ export class SignInComponent implements OnInit {
         this.toast.observe({
           success: 'Logged In Successfully',
           loading: 'loading',
-          error: 'There was an erorr!!! Your email is not registered with us ',
+          error: 'There was an erorr!!! Your email or password is wrong ',
         })
       )
       .subscribe();
