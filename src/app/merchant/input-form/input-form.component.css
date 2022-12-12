@@ -113,6 +113,7 @@ form {
   flex-direction: row;
   align-items: flex-start;
   flex-wrap: wrap;
+  margin-bottom: 1rem;
 }
 .email,
 .contact-phone,
@@ -131,10 +132,14 @@ form {
   align-self: center;
   width: auto;
 }
+.critical {
+  margin-top: 1rem;
+}
 
 .form-inline {
   display: flex;
   flex-direction: column;
+  margin-top: 3px;
 }
 
 /* .mat-select-trigger {
