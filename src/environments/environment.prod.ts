@@ -1,12 +1,11 @@
 export const environment = {
   production: true,
   firebaseConfig: {
-    apiKey: 'AIzaSyD-kgNEuhzVek2gLar8-E4_Z3SggwlMTd8',
-    authDomain: 'l2-full-stack-9aabb.firebaseapp.com',
-    projectId: 'l2-full-stack-9aabb',
-    storageBucket: 'l2-full-stack-9aabb.appspot.com',
-    messagingSenderId: '261834041698',
-    appId: '1:261834041698:web:3657c32f2910ecb947643b',
-    measurementId: 'G-2ME2L16KBG',
+    apiKey: 'AIzaSyAxoKbK3qaPpyeEZeK229uxeslsEshAL-Y',
+    authDomain: 'merchant-a5205.firebaseapp.com',
+    projectId: 'merchant-a5205',
+    storageBucket: 'merchant-a5205.appspot.com',
+    messagingSenderId: '690116960975',
+    appId: '1:690116960975:web:b46ddbb1336fb0d97f0dba',
   },
 };
