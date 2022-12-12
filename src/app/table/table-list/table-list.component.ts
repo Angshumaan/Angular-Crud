@@ -29,30 +29,6 @@ export class TableListComponent implements OnInit {
   ngOnInit(): void {
     this.route.queryParams.subscribe((res) => console.log('tabel', res));
     this.getAllMerchant();
-    const breadcrumb = {
-      customText: 'This is Custom Text',
-      dynamicText: 'Level 2 ',
-    };
-    this.route.params.subscribe((params: Params) => {
-      this.id = params['id'];
-      console.log('sdssd', this.id);
-    });
-
-    this.ngDynamicBreadcrumbService.updateBreadcrumbLabels(breadcrumb);
-  }
-
-  updateBreadcrumb(): void {
-    const breadcrumbs = [
-      {
-        label: 'merchant-list ',
-        url: '',
-      },
-      {
-        label: 'merchant-list angshu',
-        url: '/merchant-list/angshu',
-      },
-    ];
-    this.ngDynamicBreadcrumbService.updateBreadcrumb(breadcrumbs);
   }
 
   getAllMerchant() {

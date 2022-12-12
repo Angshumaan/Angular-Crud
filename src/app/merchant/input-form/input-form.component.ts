@@ -82,30 +82,6 @@ export class InputFormComponent implements OnInit {
     this.getCategoriesData();
     this.getTypeData();
     this.getPaymentData();
-    const breadcrumb = {
-      customText: 'This is Custom Text',
-      dynamicText: 'Level 2 ',
-    };
-    this.route.params.subscribe((params: Params) => {
-      this.id = params['id'];
-      console.log('params', this.id);
-    });
-
-    this.ngDynamicBreadcrumbService.updateBreadcrumbLabels(breadcrumb);
-  }
-
-  updateBreadcrumb(): void {
-    const breadcrumbs = [
-      {
-        label: `merchant-list`,
-        url: '/merchant-list/',
-      },
-      {
-        label: `merchant-list ${this.id}`,
-        url: '/merchant-list/:id',
-      },
-    ];
-    this.ngDynamicBreadcrumbService.updateBreadcrumb(breadcrumbs);
   }
 
   convertArrayofObjects(objectData: {}, array: { id: number; value: any }[]) {

@@ -17,12 +17,6 @@ const routes: Routes = [
     component: TableListComponent,
     data: {
       title: 'merchant-list',
-      breadcrumb: [
-        {
-          label: 'merchant-list',
-          url: '',
-        },
-      ],
     },
     ...canActivate(redirectToLogin),
   },
@@ -33,12 +27,6 @@ const routes: Routes = [
     pathMatch: 'full',
     data: {
       title: 'merchant-list',
-      breadcrumb: [
-        {
-          label: 'merchant-list',
-          url: '',
-        },
-      ],
     },
   },
 ];
