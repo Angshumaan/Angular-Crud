@@ -125,6 +125,11 @@
   }
 }
 
+@media (100px <= width <=300px) {
+  .hori-line {
+    width: fit-content;
+  }
+}
 ::ng-deep #cdk-overlay-1.cdk-overlay-pane {
   padding-left: 2rem;
 }
