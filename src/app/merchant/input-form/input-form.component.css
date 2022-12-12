@@ -80,6 +80,7 @@ form {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  flex-wrap: wrap;
 }
 
 /* .mat-form-field-appearance-outline.mat-form-field-invalid.mat-form-field-invalid
